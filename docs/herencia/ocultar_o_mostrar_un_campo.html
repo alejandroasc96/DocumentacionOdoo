@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Automatización en Odoo · GitBook</title>
+        <title>Ocultar o mostrar un campo  · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="accion_planificada.html" />
+    <link rel="next" href="../campos_relacionados/" />
     
     
-    <link rel="prev" href="../campo_calculado/" />
+    <link rel="prev" href="./" />
     
 
     </head>
@@ -115,9 +115,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="../herencia/">
+        <li class="chapter " data-level="1.3" data-path="./">
             
-                <a href="../herencia/">
+                <a href="./">
             
                     
                     Herencia
@@ -129,9 +129,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../herencia/ocultar_o_mostrar_un_campo.html">
+        <li class="chapter active" data-level="1.3.1" data-path="ocultar_o_mostrar_un_campo.html">
             
-                <a href="../herencia/ocultar_o_mostrar_un_campo.html">
+                <a href="ocultar_o_mostrar_un_campo.html">
             
                     
                     Ocultar o mostrar un campo 
@@ -173,9 +173,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.6" data-path="./">
+        <li class="chapter " data-level="1.6" data-path="../automatizacion_en_odoo/">
             
-                <a href="./">
+                <a href="../automatizacion_en_odoo/">
             
                     
                     Automatización en Odoo
@@ -187,9 +187,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.6.1" data-path="accion_planificada.html">
+        <li class="chapter " data-level="1.6.1" data-path="../automatizacion_en_odoo/accion_planificada.html">
             
-                <a href="accion_planificada.html">
+                <a href="../automatizacion_en_odoo/accion_planificada.html">
             
                     
                     Acción Planificada
@@ -235,7 +235,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Automatización en Odoo</a>
+        <a href=".." >Ocultar o mostrar un campo </a>
     </h1>
 </div>
 
@@ -250,13 +250,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="explicando-la-automatizaci&#xF3;n-en-odoo-11">Explicando la Automatizaci&#xF3;n en Odoo 11</h1>
-<p>En Odoo existen diversas formas de automatizar tareas dentro de  Odoo, como el env&#xED;o de emails, comprobaci&#xF3;n de suscripciones  etc&#x2026; Como administradores de Odoo, disponemos de dos funcionalidades muy interesantes para automatizar tareas: <strong>acciones autom&#xE1;ticas</strong> o <strong>acciones planificadas</strong> y las dos las tenemos disponibles en el submen&#xFA; <strong>Automatizaci&#xF3;n</strong>, en <strong>T&#xE9;cnico</strong> en el m&#xF3;dulo de <strong>Configuraci&#xF3;n</strong>.</p>
-<p><em>Nota</em></p>
-<pre><code>En la Versi&#xF3;n 11 de odoo las Acciones Automatizadas no est&#xE1;n por defecto activadas.
-Para poder usarlas deberemos descargar el m&#xF3;dulo Reglas de acci&#xF3;n autom&#xE1;ticas(base_automation)
-</code></pre><p>Las <strong>automatizaciones planificadas</strong>, son tareas que se ejecutan peri&#xF3;dicamente. Por ejemplo, podemos enviar un email mensualmente con el n&#xFA;mero de becarios de la empresa.</p>
-<p>Las <strong>automatizaciones autom&#xE1;ticas</strong>, son tareas que se ejecutan dependiendo de un evento. Por ejemplo, cuando a una suscripci&#xF3;n activa solo le quedan 30 d&#xED;as, se lanza un evento para notificarle al cliente que se le va a caducar dicho servicio.</p>
+                                <h1 id="ocultar-o-mostrar-un-campo">Ocultar o mostrar un campo</h1>
+<p>Para mostrar un campo seg&#xFA;n una condici&#xF3;n podemos seguir la siguiente estrucutura:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;subscriptionDays&quot;</span> <span class="hljs-attr">attrs</span>=<span class="hljs-string">&quot;{&apos;invisible&apos;:[(&apos;type&apos;, &apos;!=&apos;, &apos;service&apos;)]}&quot;</span>/&gt;</span>
+</code></pre>
+<p>Aqui le estamos indicando que el campo <code>subscriptionDays</code> s&#xF3;lo se motrar&#xE1; visible si el campo <code>type</code> es <code>service</code>.</p>
 
                                 
                                 </section>
@@ -284,12 +282,12 @@ Para poder usarlas deberemos descargar el m&#xF3;dulo Reglas de acci&#xF3;n auto
 
             
                 
-                <a href="../campo_calculado/" class="navigation navigation-prev " aria-label="Previous page: Campo Calculado">
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Herencia">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="accion_planificada.html" class="navigation navigation-next " aria-label="Next page: Acción Planificada">
+                <a href="../campos_relacionados/" class="navigation navigation-next " aria-label="Next page: Campos Relacionados">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -300,7 +298,7 @@ Para poder usarlas deberemos descargar el m&#xF3;dulo Reglas de acci&#xF3;n auto
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Automatización en Odoo","level":"1.6","depth":1,"next":{"title":"Acción Planificada","level":"1.6.1","depth":2,"path":"automatizacion_en_odoo/accion_planificada.md","ref":"automatizacion_en_odoo/accion_planificada.md","articles":[]},"previous":{"title":"Campo Calculado","level":"1.5","depth":1,"path":"campo_calculado/README.md","ref":"campo_calculado/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"automatizacion_en_odoo/README.md","mtime":"2019-04-02T10:48:12.245Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-02T12:54:10.178Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Ocultar o mostrar un campo ","level":"1.3.1","depth":2,"next":{"title":"Campos Relacionados","level":"1.4","depth":1,"path":"campos_relacionados/README.md","ref":"campos_relacionados/README.md","articles":[]},"previous":{"title":"Herencia","level":"1.3","depth":1,"path":"herencia/README.md","ref":"herencia/README.md","articles":[{"title":"Ocultar o mostrar un campo ","level":"1.3.1","depth":2,"path":"herencia/ocultar_o_mostrar_un_campo.md","ref":"herencia/ocultar_o_mostrar_un_campo.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"herencia/ocultar_o_mostrar_un_campo.md","mtime":"2019-04-02T12:53:38.793Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-02T12:54:10.178Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
