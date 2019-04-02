@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Campo Calculado · GitBook</title>
+        <title>Campos Relacionados · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../automatizacion_en_odoo/" />
+    <link rel="next" href="../campo_calculado/" />
     
     
-    <link rel="prev" href="../campos_relacionados/" />
+    <link rel="prev" href="../herencia/" />
     
 
     </head>
@@ -128,9 +128,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="../campos_relacionados/">
+        <li class="chapter active" data-level="1.4" data-path="./">
             
-                <a href="../campos_relacionados/">
+                <a href="./">
             
                     
                     Campos Relacionados
@@ -141,9 +141,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5" data-path="./">
+        <li class="chapter " data-level="1.5" data-path="../campo_calculado/">
             
-                <a href="./">
+                <a href="../campo_calculado/">
             
                     
                     Campo Calculado
@@ -216,7 +216,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Campo Calculado</a>
+        <a href=".." >Campos Relacionados</a>
     </h1>
 </div>
 
@@ -231,38 +231,41 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="campo-calculado">Campo Calculado</h1>
-<p>Los campos pueden tener valores calculados por una funci&#xF3;n, en vez de simplemente leer un valor almacenado en una base de datos. Un campo calculado es declarado como un campo regular, pero tiene el argumento &#x201C;compute&#x201D; adicional con el nombre de la funci&#xF3;n que se usar&#xE1; para calcularlo.</p>
-<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span>  <span class="hljs-title">campo_calculado</span><span class="hljs-params">(models.Model)</span>:</span>
-_name =  <span class="hljs-string">&apos;account.invoice.line&apos;</span>
-_inherit =  <span class="hljs-string">&apos;account.invoice.line&apos;</span>
-
-campoCalculado = fields.Integer(string=<span class="hljs-string">&apos;D&#xED;as que han pasado&apos;</span>,compute=<span class="hljs-string">&quot;_campocalculado&quot;</span>,store=<span class="hljs-keyword">False</span>)
-<span class="hljs-meta">@api.one</span>
-<span class="hljs-meta">@api.depends(&apos;create_date&apos;)</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span>  <span class="hljs-title">_campocalculado</span><span class="hljs-params">(self)</span>:</span>
-    self.campoCalculado = self.peso + self.gravedad
+                                <h1 id="campos-relacionados-odoo-v11">Campos Relacionados (Odoo v11)</h1>
+<h2 id="descripci&#xF3;n">Descripci&#xF3;n</h2>
+<p>Muchas veces a la hora de programar en Odoo nos encontraremos con casos en lo que queremos trabajar  con campos que se encuentran en otros modelos. Para poder hacerlo Odoo nos facilita la posibilidad de usar campos relacionados que lo que viene hacer de forma resumida es enlazar un campo del modelo X con otro campo del modelo Y. Para poder acceder a la informaci&#xF3;n que contienen habr&#xE1; que usar la siguiente secuencia</p>
+<h3 id="estructura">Estructura</h3>
+<p>Simplemente establece el argumento del nombre relacionado con su modelo.</p>
+<pre><code class="lang-python">rel_field = fields.Char(string=<span class="hljs-string">&apos;Name&apos;</span>,related=<span class="hljs-string">&apos;partner_id.name&apos;</span>)
 </code></pre>
-<p>El c&#xF3;digo anterior agrega un campo nuevo  <code>campoCalculado</code>  y el m&#xE9;todo  <code>_campocalculado</code>  que sera usado para calcular el campo. El nombre de la funci&#xF3;n es pasado como una cadena, pero tambi&#xE9;n es posible pasarla como una referencia obligatoria (el identificador de la funci&#xF3;n son comillas).
-<em><strong>Explicaci&#xF3;n:</strong></em></p>
 <ul>
-<li><p><strong><code>@api.one</code></strong> este decorador har&#xE1; que nuestro self solo tenga un registro.</p>
-</li>
-<li><p>Si en vez de esto usamos  <strong><code>@api.multi</code></strong>, representara un conjunto
-de registros y nuestro c&#xF3;digo necesitar&#xE1; gestionar la iteraci&#xF3;n sobre
-cada registro.</p>
-<ul>
-<li>El  <strong><code>@api.depends</code></strong>  es necesario si el calculo usa otros campos:
-le dice al servidor cuando re-calcular valores almacenados o en
-cache. Este acepta uno o mas nombres de campo como argumento y la
-notaci&#xF3;n de puntos puede ser usada para seguir las relaciones de
-campo.</li>
-<li><strong><code>@api.constrains(fld1,...)</code></strong> se utiliza para las funciones de validaci&#xF3;n para identificar en qu&#xE9; cambios debe activarse la comprobaci&#xF3;n de validaci&#xF3;n</li>
-<li><strong><code>@api.onchange(fld1,...)</code></strong>  se utiliza para las funciones de cambio para identificar los campos en el formulario que desencadenar&#xE1; la acci&#xF3;n</li>
-</ul>
+<li><strong>rel_field</strong> nombre que le ponemos al campo.</li>
+<li><strong>string=&apos; &apos;</strong> etiqueta que tendr&#xE1; nuestro campo.</li>
+<li><strong>related</strong> declaraci&#xF3;n de la relaci&#xF3;n.</li>
+<li><p><strong>fields.Char</strong> indicamos el tipo de campo que vamos a otorgarle (este debe coincidir con el que hereda).</p>
+<p>El par&#xE1;metro <strong>store</strong> nos permite almacenar el valor en la base de datos.</p>
+<pre><code class="lang-python">rel_field = fields.Char(string=<span class="hljs-string">&apos;Name&apos;</span>,store=<span class="hljs-keyword">True</span>,related=<span class="hljs-string">&apos;partner_id.name&apos;</span>)
+</code></pre>
+<h2 id="ejemplo">Ejemplo</h2>
+<p>Para explicar lo mencionado anteriormente vamos a relacionar un campo del modelo de Producto con un campo que se encuentra en el modelo de Facturas.</p>
 </li>
 </ul>
-<p>En el caso de que queramos <strong>guardar</strong> nuestro <strong>campo calculado</strong> deberemos ponerle <strong><code>store=True</code></strong> .</p>
+<h3 id="1--localizar-el-nombre-del-campo-que-queremos-relacionar">1.- Localizar el nombre del campo que queremos relacionar</h3>
+<p>Para este caso seleccionaremos el campo  <strong>Tipo de Producto</strong> del cual debemos coger el nombre que le da Odoo a dicho campo para ello posicionamos nuestro cursor encima del nombre y aparecer&#xE1; una pantalla de color negro con la informaci&#xF3;n del campo.</p>
+<p><img src="https://raw.github.com/alejandroasc96/Documentacion//campoRelacionadoOdoo/Fotos/viendoCampoType.png" width="700"></p>
+<p>Una vez hecho estoy nos dirigiremos a nuestro modelo donde nos crearemos una nueva clase que hereda de account.invoice.line y a&#xF1;adiremos nuestro campo relacionado.</p>
+<p><img src="https://raw.github.com/alejandroasc96/Documentacion//campoRelacionadoOdoo/Fotos/vistaModelo.png" width="700"></p>
+<p>A continuaci&#xF3;n crearemos la vista que va a contener el nuevo campo dentro de las l&#xED;neas de factura.</p>
+<p><img src="https://raw.github.com/alejandroasc96/Documentacion//campoRelacionadoOdoo/Fotos/vistaView.png" width="700"></p>
+<p>Y para finalizar dado que estamos usando la vista de Producto y Factura habr&#xE1; que a&#xF1;adirlas a nuestro manifest</p>
+<p><img src="https://raw.github.com/alejandroasc96/Documentacion//campoRelacionadoOdoo/Fotos/vistaManifest.png" width="700"></p>
+<h3 id="consejo">Consejo</h3>
+<p>Con esta sentencia <strong><code>&apos;application&apos;: &apos;True&apos;,</code></strong> conseguimos que nuestra aplicaci&#xF3;n est&#xE9; en el listado principal de nuestro Odoo por lo que nos facilitar&#xE1; la b&#xFA;squeda.</p>
+<h3 id="resultado">Resultado:</h3>
+<p><strong>Vista sin modificar:</strong></p>
+<p><img src="https://raw.github.com/alejandroasc96/Documentacion//campoRelacionadoOdoo/Fotos/vistaResultadoSinModificar.png" width="700"></p>
+<p><strong>Vista modificada</strong></p>
+<p><img src="https://raw.github.com/alejandroasc96/Documentacion//campoRelacionadoOdoo/Fotos/vistaresultado.png" width="700"></p>
 
                                 
                                 </section>
@@ -290,12 +293,12 @@ campo.</li>
 
             
                 
-                <a href="../campos_relacionados/" class="navigation navigation-prev " aria-label="Previous page: Campos Relacionados">
+                <a href="../herencia/" class="navigation navigation-prev " aria-label="Previous page: Herencia">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../automatizacion_en_odoo/" class="navigation navigation-next " aria-label="Next page: Automatización en Odoo">
+                <a href="../campo_calculado/" class="navigation navigation-next " aria-label="Next page: Campo Calculado">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -306,7 +309,7 @@ campo.</li>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Campo Calculado","level":"1.5","depth":1,"next":{"title":"Automatización en Odoo","level":"1.6","depth":1,"path":"automatizacion_en_odoo/README.md","ref":"automatizacion_en_odoo/README.md","articles":[{"title":"Acción Planificada","level":"1.6.1","depth":2,"path":"automatizacion_en_odoo/accion_planificada.md","ref":"automatizacion_en_odoo/accion_planificada.md","articles":[]}]},"previous":{"title":"Campos Relacionados","level":"1.4","depth":1,"path":"campos_relacionados/README.md","ref":"campos_relacionados/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"campo_calculado/README.md","mtime":"2019-04-02T10:37:15.608Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-02T10:42:32.609Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Campos Relacionados","level":"1.4","depth":1,"next":{"title":"Campo Calculado","level":"1.5","depth":1,"path":"campo_calculado/README.md","ref":"campo_calculado/README.md","articles":[]},"previous":{"title":"Herencia","level":"1.3","depth":1,"path":"herencia/README.md","ref":"herencia/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"campos_relacionados/README.md","mtime":"2019-04-02T10:36:43.620Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-02T10:42:32.609Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

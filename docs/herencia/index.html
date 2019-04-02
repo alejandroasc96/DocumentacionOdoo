@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Campo Calculado · GitBook</title>
+        <title>Herencia · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../automatizacion_en_odoo/" />
+    <link rel="next" href="../campos_relacionados/" />
     
     
-    <link rel="prev" href="../campos_relacionados/" />
+    <link rel="prev" href="../chapter/" />
     
 
     </head>
@@ -115,9 +115,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="../herencia/">
+        <li class="chapter active" data-level="1.3" data-path="./">
             
-                <a href="../herencia/">
+                <a href="./">
             
                     
                     Herencia
@@ -141,9 +141,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5" data-path="./">
+        <li class="chapter " data-level="1.5" data-path="../campo_calculado/">
             
-                <a href="./">
+                <a href="../campo_calculado/">
             
                     
                     Campo Calculado
@@ -216,7 +216,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Campo Calculado</a>
+        <a href=".." >Herencia</a>
     </h1>
 </div>
 
@@ -231,38 +231,24 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="campo-calculado">Campo Calculado</h1>
-<p>Los campos pueden tener valores calculados por una funci&#xF3;n, en vez de simplemente leer un valor almacenado en una base de datos. Un campo calculado es declarado como un campo regular, pero tiene el argumento &#x201C;compute&#x201D; adicional con el nombre de la funci&#xF3;n que se usar&#xE1; para calcularlo.</p>
-<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span>  <span class="hljs-title">campo_calculado</span><span class="hljs-params">(models.Model)</span>:</span>
-_name =  <span class="hljs-string">&apos;account.invoice.line&apos;</span>
-_inherit =  <span class="hljs-string">&apos;account.invoice.line&apos;</span>
-
-campoCalculado = fields.Integer(string=<span class="hljs-string">&apos;D&#xED;as que han pasado&apos;</span>,compute=<span class="hljs-string">&quot;_campocalculado&quot;</span>,store=<span class="hljs-keyword">False</span>)
-<span class="hljs-meta">@api.one</span>
-<span class="hljs-meta">@api.depends(&apos;create_date&apos;)</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span>  <span class="hljs-title">_campocalculado</span><span class="hljs-params">(self)</span>:</span>
-    self.campoCalculado = self.peso + self.gravedad
-</code></pre>
-<p>El c&#xF3;digo anterior agrega un campo nuevo  <code>campoCalculado</code>  y el m&#xE9;todo  <code>_campocalculado</code>  que sera usado para calcular el campo. El nombre de la funci&#xF3;n es pasado como una cadena, pero tambi&#xE9;n es posible pasarla como una referencia obligatoria (el identificador de la funci&#xF3;n son comillas).
-<em><strong>Explicaci&#xF3;n:</strong></em></p>
-<ul>
-<li><p><strong><code>@api.one</code></strong> este decorador har&#xE1; que nuestro self solo tenga un registro.</p>
-</li>
-<li><p>Si en vez de esto usamos  <strong><code>@api.multi</code></strong>, representara un conjunto
-de registros y nuestro c&#xF3;digo necesitar&#xE1; gestionar la iteraci&#xF3;n sobre
-cada registro.</p>
-<ul>
-<li>El  <strong><code>@api.depends</code></strong>  es necesario si el calculo usa otros campos:
-le dice al servidor cuando re-calcular valores almacenados o en
-cache. Este acepta uno o mas nombres de campo como argumento y la
-notaci&#xF3;n de puntos puede ser usada para seguir las relaciones de
-campo.</li>
-<li><strong><code>@api.constrains(fld1,...)</code></strong> se utiliza para las funciones de validaci&#xF3;n para identificar en qu&#xE9; cambios debe activarse la comprobaci&#xF3;n de validaci&#xF3;n</li>
-<li><strong><code>@api.onchange(fld1,...)</code></strong>  se utiliza para las funciones de cambio para identificar los campos en el formulario que desencadenar&#xE1; la acci&#xF3;n</li>
-</ul>
-</li>
-</ul>
-<p>En el caso de que queramos <strong>guardar</strong> nuestro <strong>campo calculado</strong> deberemos ponerle <strong><code>store=True</code></strong> .</p>
+                                <h1 id="herencia">Herencia</h1>
+<p>Para este ejemplo vamos a a&#xF1;adir un nuevo campo llamado <strong>Fecha de caducidad</strong> al formulario de producto para que se nos quede un resulta como el que se ve a continuaci&#xF3;n.</p>
+<p><img src="https://raw.github.com/alejandroasc96/Documentacion/herenciaOdoo/Fotos/formularioProducto.png" width="700"></p>
+<p>Para aplicar los cambios en primera instancia deberemos conocer el nombre del campo que est&#xE1; encima de donde queremos colocar nuestro nuevo campo para ello vamos a <strong>Ajustes</strong> y dentro de esa ventana activamos el <strong>Modo Desarrollador</strong>.</p>
+<p><img src="https://raw.github.com/alejandroasc96/Documentacion/herenciaOdoo/Fotos/modoDesarrollador.png" width="700"></p>
+<p> Una vez activado este modo al dirigirnos a la pesta&#xF1;a del formulario si ponemos el rat&#xF3;n por encima de la etiqueta nos aparecer&#xE1; el nombre del campo que en mi caso es <strong>standard_price</strong></p>
+<p><img src="https://raw.github.com/alejandroasc96/Documentacion/herenciaOdoo/Fotos/nombreCampo.png" width="700"></p>
+<p>Una vez que sepamos el nombre deberemos buscar dicho campo en las vistas de Odoo para saber donde aplicar nuestro cambio exactamente, para esto no iremos a la pesta&#xF1;a que se encuentra en la parte superior a la derecha y una vez all&#xED; entraremos en editar vista de formulario.</p>
+<p><img src="https://raw.github.com/alejandroasc96/Documentacion/herenciaOdoo/Fotos/editarVistaFormulario.png" width="700"></p>
+<p>Hecho esto nos parecer&#xE1; la siguiente vista donde deberemos buscar el nombre de nuestro campo ( standard_price) en este caso dicho campo no se encuentra en  esta vista si no en una vista heredada llamada <strong>product.template.commom.form</strong>. Para ver dicha vista picaremos sobre el icono marcado.</p>
+<p><img src="https://raw.github.com/alejandroasc96/Documentacion/herenciaOdoo/Fotos/vistaFormularioTemple.png" width="700"></p>
+<p>Abierta la nueva vista y habiendo encontrado el nombre de nuestro campo deberemos recordar la informaci&#xF3;n marcada con flechas (nombre del modelo <strong>product.template</strong> , ID externo <strong>product.product_template_form_view</strong>) as&#xED; mismo como la estructura que est&#xE1; establecida en la vista de formulario.</p>
+<p><img src="https://raw.github.com/alejandroasc96/Documentacion/herenciaOdoo/Fotos/vistaheredada.png" width="700"></p>
+<p><img src="https://raw.github.com/alejandroasc96/Documentacion/herenciaOdoo/Fotos/vistaheredada1.png" width="700"></p>
+<p>A continuaci&#xF3;n lo que haremos  primero es crear un modelo  que hereda de <strong>product.template</strong> y donde nos creamos  el nuevo campo que en este caso se llama <strong>fechaAle</strong> que es de tipo <strong>Date</strong>.</p>
+<p><img src="https://raw.github.com/alejandroasc96/Documentacion/herenciaOdoo/Fotos/modelo.png" width="700"></p>
+<p>Creado nuestro modelo, lo que haremos es crearnos nuestra vista que hace referencia a <strong>product.product_template_form_view</strong> (V&#xE9;ase las im&#xE1;genes anteriores para ver el significado de las flechas).</p>
+<p><img src="https://raw.github.com/alejandroasc96/Documentacion/herenciaOdoo/Fotos/vistaFormulario.png" width="700"></p>
 
                                 
                                 </section>
@@ -290,12 +276,12 @@ campo.</li>
 
             
                 
-                <a href="../campos_relacionados/" class="navigation navigation-prev " aria-label="Previous page: Campos Relacionados">
+                <a href="../chapter/" class="navigation navigation-prev " aria-label="Previous page: Docker">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../automatizacion_en_odoo/" class="navigation navigation-next " aria-label="Next page: Automatización en Odoo">
+                <a href="../campos_relacionados/" class="navigation navigation-next " aria-label="Next page: Campos Relacionados">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -306,7 +292,7 @@ campo.</li>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Campo Calculado","level":"1.5","depth":1,"next":{"title":"Automatización en Odoo","level":"1.6","depth":1,"path":"automatizacion_en_odoo/README.md","ref":"automatizacion_en_odoo/README.md","articles":[{"title":"Acción Planificada","level":"1.6.1","depth":2,"path":"automatizacion_en_odoo/accion_planificada.md","ref":"automatizacion_en_odoo/accion_planificada.md","articles":[]}]},"previous":{"title":"Campos Relacionados","level":"1.4","depth":1,"path":"campos_relacionados/README.md","ref":"campos_relacionados/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"campo_calculado/README.md","mtime":"2019-04-02T10:37:15.608Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-02T10:42:32.609Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Herencia","level":"1.3","depth":1,"next":{"title":"Campos Relacionados","level":"1.4","depth":1,"path":"campos_relacionados/README.md","ref":"campos_relacionados/README.md","articles":[]},"previous":{"title":"Docker","level":"1.2","depth":1,"path":"chapter/README.md","ref":"chapter/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"herencia/README.md","mtime":"2019-04-02T10:36:14.504Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-02T10:42:32.609Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
