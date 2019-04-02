@@ -1,5 +1,3 @@
-
-
 # Acción Planificada en Odoo 11
 En Odoo, podemos ejecutar tareas planificadas que se ejecuten cada cierto tiempo. Por ejemplo, podemos enviar un email cada mes con el resumen de las ventas.
 
