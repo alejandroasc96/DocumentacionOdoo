@@ -1,0 +1,367 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Campos Relacionados · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../campo_calculado/" />
+    
+    
+    <link rel="prev" href="../herencia/ocultar_o_mostrar_un_campo.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../chapter/">
+            
+                <a href="../chapter/">
+            
+                    
+                    Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../herencia/">
+            
+                <a href="../herencia/">
+            
+                    
+                    Herencia
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../herencia/ocultar_o_mostrar_un_campo.html">
+            
+                <a href="../herencia/ocultar_o_mostrar_un_campo.html">
+            
+                    
+                    Ocultar o mostrar un campo 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Campos Relacionados
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../campo_calculado/">
+            
+                <a href="../campo_calculado/">
+            
+                    
+                    Campo Calculado
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../automatizacion_en_odoo/">
+            
+                <a href="../automatizacion_en_odoo/">
+            
+                    
+                    Automatización en Odoo
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../automatizacion_en_odoo/accion_planificada.html">
+            
+                <a href="../automatizacion_en_odoo/accion_planificada.html">
+            
+                    
+                    Acción Planificada
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Campos Relacionados</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="campos-relacionados-odoo-v11">Campos Relacionados (Odoo v11)</h1>
+<h2 id="descripci&#xF3;n">Descripci&#xF3;n</h2>
+<p>Muchas veces a la hora de programar en Odoo nos encontraremos con casos en lo que queremos trabajar  con campos que se encuentran en otros modelos. Para poder hacerlo Odoo nos facilita la posibilidad de usar campos relacionados que lo que viene hacer de forma resumida es enlazar un campo del modelo X con otro campo del modelo Y. Para poder acceder a la informaci&#xF3;n que contienen habr&#xE1; que usar la siguiente secuencia</p>
+<h3 id="estructura">Estructura</h3>
+<p>Simplemente establece el argumento del nombre relacionado con su modelo.</p>
+<pre><code class="lang-python">rel_field = fields.Char(string=<span class="hljs-string">&apos;Name&apos;</span>,related=<span class="hljs-string">&apos;partner_id.name&apos;</span>)
+</code></pre>
+<ul>
+<li><strong>rel_field</strong> nombre que le ponemos al campo.</li>
+<li><strong>string=&apos; &apos;</strong> etiqueta que tendr&#xE1; nuestro campo.</li>
+<li><strong>related</strong> declaraci&#xF3;n de la relaci&#xF3;n.</li>
+<li><p><strong>fields.Char</strong> indicamos el tipo de campo que vamos a otorgarle (este debe coincidir con el que hereda).</p>
+<p>El par&#xE1;metro <strong>store</strong> nos permite almacenar el valor en la base de datos.</p>
+<pre><code class="lang-python">rel_field = fields.Char(string=<span class="hljs-string">&apos;Name&apos;</span>,store=<span class="hljs-keyword">True</span>,related=<span class="hljs-string">&apos;partner_id.name&apos;</span>)
+</code></pre>
+<h2 id="ejemplo">Ejemplo</h2>
+<p>Para explicar lo mencionado anteriormente vamos a relacionar un campo del modelo de Producto con un campo que se encuentra en el modelo de Facturas.</p>
+</li>
+</ul>
+<h3 id="1--localizar-el-nombre-del-campo-que-queremos-relacionar">1.- Localizar el nombre del campo que queremos relacionar</h3>
+<p>Para este caso seleccionaremos el campo  <strong>Tipo de Producto</strong> del cual debemos coger el nombre que le da Odoo a dicho campo para ello posicionamos nuestro cursor encima del nombre y aparecer&#xE1; una pantalla de color negro con la informaci&#xF3;n del campo.</p>
+<p><img src="https://raw.github.com/alejandroasc96/Documentacion//campoRelacionadoOdoo/Fotos/viendoCampoType.png" width="700"></p>
+<p>Una vez hecho estoy nos dirigiremos a nuestro modelo donde nos crearemos una nueva clase que hereda de account.invoice.line y a&#xF1;adiremos nuestro campo relacionado.</p>
+<p><img src="https://raw.github.com/alejandroasc96/Documentacion//campoRelacionadoOdoo/Fotos/vistaModelo.png" width="700"></p>
+<p>A continuaci&#xF3;n crearemos la vista que va a contener el nuevo campo dentro de las l&#xED;neas de factura.</p>
+<p><img src="https://raw.github.com/alejandroasc96/Documentacion//campoRelacionadoOdoo/Fotos/vistaView.png" width="700"></p>
+<p>Y para finalizar dado que estamos usando la vista de Producto y Factura habr&#xE1; que a&#xF1;adirlas a nuestro manifest</p>
+<p><img src="https://raw.github.com/alejandroasc96/Documentacion//campoRelacionadoOdoo/Fotos/vistaManifest.png" width="700"></p>
+<h3 id="consejo">Consejo</h3>
+<p>Con esta sentencia <strong><code>&apos;application&apos;: &apos;True&apos;,</code></strong> conseguimos que nuestra aplicaci&#xF3;n est&#xE9; en el listado principal de nuestro Odoo por lo que nos facilitar&#xE1; la b&#xFA;squeda.</p>
+<h3 id="resultado">Resultado:</h3>
+<p><strong>Vista sin modificar:</strong></p>
+<p><img src="https://raw.github.com/alejandroasc96/Documentacion//campoRelacionadoOdoo/Fotos/vistaResultadoSinModificar.png" width="700"></p>
+<p><strong>Vista modificada</strong></p>
+<p><img src="https://raw.github.com/alejandroasc96/Documentacion//campoRelacionadoOdoo/Fotos/vistaresultado.png" width="700"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../herencia/ocultar_o_mostrar_un_campo.html" class="navigation navigation-prev " aria-label="Previous page: Ocultar o mostrar un campo ">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../campo_calculado/" class="navigation navigation-next " aria-label="Next page: Campo Calculado">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Campos Relacionados","level":"1.4","depth":1,"next":{"title":"Campo Calculado","level":"1.5","depth":1,"path":"campo_calculado/README.md","ref":"campo_calculado/README.md","articles":[]},"previous":{"title":"Ocultar o mostrar un campo ","level":"1.3.1","depth":2,"path":"herencia/ocultar_o_mostrar_un_campo.md","ref":"herencia/ocultar_o_mostrar_un_campo.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"campos_relacionados/README.md","mtime":"2019-04-04T08:46:10.497Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-04T09:12:05.378Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

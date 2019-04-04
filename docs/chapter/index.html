@@ -1,0 +1,463 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Docker · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../herencia/" />
+    
+    
+    <link rel="prev" href="../" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../herencia/">
+            
+                <a href="../herencia/">
+            
+                    
+                    Herencia
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../herencia/ocultar_o_mostrar_un_campo.html">
+            
+                <a href="../herencia/ocultar_o_mostrar_un_campo.html">
+            
+                    
+                    Ocultar o mostrar un campo 
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../campos_relacionados/">
+            
+                <a href="../campos_relacionados/">
+            
+                    
+                    Campos Relacionados
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../campo_calculado/">
+            
+                <a href="../campo_calculado/">
+            
+                    
+                    Campo Calculado
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../automatizacion_en_odoo/">
+            
+                <a href="../automatizacion_en_odoo/">
+            
+                    
+                    Automatización en Odoo
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../automatizacion_en_odoo/accion_planificada.html">
+            
+                <a href="../automatizacion_en_odoo/accion_planificada.html">
+            
+                    
+                    Acción Planificada
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Docker</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="uso-de-docker">Uso de Docker</h1>
+<p>(Facilitando la vida del programador)</p>
+<p><img src="https://lh4.googleusercontent.com/pDdUiWy3bw-JyaCsSbBayV-0bH2xZHXouD0PIikVxIyPZQXaSPoE---Ky_FVvDzRb_AX4phRfsU0Po1RWXL8wRLsFW-YFg_bxBCQEC_dSWr3vy8Ff465AKIuRHRYbQa6CkiKmCx7" alt=""></p>
+<h2 id="&#xBF;qu&#xE9;-es-docker">&#xBF;Qu&#xE9; es Docker?</h2>
+<p>Docker es un programa de c&#xF3;digo abierto que permite que una aplicaci&#xF3;n Linux y sus dependencias se empaqueten como un contenedor.</p>
+<p>La virtualizaci&#xF3;n basada en contenedores a&#xED;sla las aplicaciones entre s&#xED; en un sistema operativo (OS) compartido. Este enfoque estandariza la entrega del programa de la aplicaci&#xF3;n, permitiendo que las aplicaciones se ejecuten en cualquier entorno Linux, ya sea f&#xED;sico o virtual. Dado que comparten el mismo sistema operativo, los contenedores son port&#xE1;tiles entre diferentes distribuciones de Linux, y son significativamente m&#xE1;s peque&#xF1;os que las im&#xE1;genes de m&#xE1;quinas virtuales (VM).</p>
+<h2 id="instalando-docker">Instalando docker</h2>
+<h3 id="paso-1--eliminar-posibles-versiones-antiguas-de-docker">Paso 1 : Eliminar posibles versiones antiguas de Docker</h3>
+<pre><code>$ sudo apt-get remove docker docker-engine docker.io containerd runc
+</code></pre><h3 id="paso-2--instalar-docker-ce">Paso 2 : Instalar Docker CE</h3>
+<ol>
+<li>Hab&#x155;a que asegurarnos que el paquete  <strong><em>apt</em></strong> est&#xE9; actualizado.<pre><code>$ sudo apt-get update
+</code></pre></li>
+<li>Para instalar Docker en Ubuntu basta con que ejecutemos el siguiente comando:<pre><code>$ sudo apt-get install docker-ce docker-ce-cli containerd.io
+</code></pre></li>
+<li>Reiniciar Docker</li>
+</ol>
+<p>Con la finalidad de que todos los cambios sean tomados adecuadamente es conveniente reiniciar docker utilizando:</p>
+<pre><code>sudo service docker restart
+</code></pre><ol>
+<li><p>Verificar que Docker CE est&#xE1; instalando correctamente.</p>
+<pre><code>$ sudo docker run hello-world
+</code></pre></li>
+<li><p>A&#xF1;adir tu usuario al grupo de Docker.</p>
+<pre><code>sudo gpasswd -a ${USER} docker
+</code></pre><h2 id="instalando-odoo--postgres-en-docker">Instalando Odoo + Postgres en Docker</h2>
+<p>Una vez hayamos instalado docker, debemos crear el archivo  <strong>docker-compose.yml</strong> en el directorio de nuestra preferencia, el mismo contendr&#xE1; b&#xE1;sicamente toda la informaci&#xF3;n necesaria para hacer deploy de nuestro servicio con Odoo.</p>
+</li>
+</ol>
+<p><code>nano docker-compose.yml</code></p>
+<p>Este archivo va a contener lo siguiente:</p>
+<pre><code>version: &apos;2&apos;
+services:
+  db:
+    image: postgres:9.4
+    volumes:
+      - ./db-data:/var/lib/postgresql/data/pgdata
+    environment:
+    - POSTGRES_PASSWORD=odoo
+    - POSTGRES_USER=odoo
+    - POSTGRES_DB=postgres
+    - PGDATA=/var/lib/postgresql/data/pgdata
+  web:
+    image: odoo:11
+    command: --dev=all
+    depends_on:
+      - db
+    ports:
+      - &quot;8069:8069&quot;
+    volumes:
+      - web-data:/var/lib/odoo
+      - ./config:/etc/odoo
+      - ./extra-addons:/mnt/extra-addons
+volumes:
+  db-data:
+    driver: local
+  web-data:
+    driver: local
+</code></pre><p>En dicho archivo podemos hacer los siguientes cambios para adaptarlo a nuestros requerimientos:</p>
+<ul>
+<li><code>image: odoo:11</code> : Puedes reemplaza odoo:11 por la versi&#xF3;n que necesitas odoo:9 , odoo:10, odoo12 o simplemente odoo:latest para la &#xFA;ltima versi&#xF3;n disponible.</li>
+<li><code>ports: - &quot;8069:8069&quot;</code>  : Reemplace el primer puerto por el puerto que desee, esto le ayudar&#xE1; a tener m&#xFA;ltiples instancias de odoo corriendo al mismo tiempo, por ejemplo podr&#xED;a quedar as&#xED;, <code>ports: - &quot;8070:8069&quot;</code>  o <code>ports: - &quot;8071:8069&quot;</code> y as&#xED; sucesivamente</li>
+<li><code>image: postgres:9.4</code>  : Tambi&#xE9;n puede reemplazar la imagen de postgres que desea usar.</li>
+<li><code>volumes:</code> gracias a esta etiqueta lo que estamos haciendo es mapear la carpeta virtual de Docker donde se encuentra nuestro m&#xF3;dulo de odoo con la carpeta del sistema donde tenemos nuestro proyecto. <strong>- ./extra-addons:/mnt/extra-addons</strong> en este caso gracias al <strong>./extra-addons</strong> le estamos indicando que coja el propio directorio donde nos encontramos para crear una carpeta llamada extra-addons la cual va a estar mapeada con la carpeta dentro de docker en el directorio  <strong>/mnt/extra-addons</strong>.</li>
+</ul>
+<p>En l&#xED;neas generales con este <strong>docker-compose.yml</strong> invocamos un conjunto de contenedores que se relacionan entre s&#xED;, como lo son el contenedor de la versi&#xF3;n de odoo y el contenedor de postgres, as&#xED; mismo para el primer contenedor manifestamos que escuchara del puerto 8069 (y se podr&#xE1; acceder del que le indiquemos) y adem&#xE1;s se monta un volumen local llamado extra-addons que se vincular&#xE1; autom&#xE1;ticamente con el /mnt/extra-addons del contenedor de odoo.</p>
+<p>Por &#xFA;ltimo se describe el usuario y contrase&#xF1;a a utilizar para postgres y se determina que cuando el ordenador hu&#xE9;sped se reinicia el servicio de docker tambi&#xE9;n lo har&#xE1;, esto gracias al par&#xE1;metro restart: always.</p>
+<h3 id="arrancando-odoo">Arrancando Odoo</h3>
+<ol>
+<li><p>Una vez creado nuestro compose se nos quedar&#xED;a un fichero tal que as&#xED;
+<img src="https://lh4.googleusercontent.com/Ah9YAJH-z6_KxHI2naOop8-1IGzUMOYUEJWuEY-VI7Wd0QZiSxU3sWDcKcyYt3gJFZncEJQGPjcqjS7wtWFnN4CxevV7BRcBw3Rq55YSruqtmx1qg2dhypSCgAuYHI_s80nB6NLO" alt=""></p>
+</li>
+<li><p>Creado nuestro docker-compose.yml, debemos iniciar la instancia de Odoo, para ello desde la terminal nos ubicamos en el directorio donde est&#xE1; el archivo creado anteriormente y ejecutamos:</p>
+<pre><code>docker-compose up
+</code></pre><p>Autom&#xE1;ticamente se iniciar&#xE1; la descarga de los contenedores docker necesarios, se iniciar&#xE1; la base de dato y podremos acceder a nuestra instancia de odoo desde <code>localhost:8069</code> o el puerto que haya indicado. Una vez en ella tocar&#xE1; crear nuestra base de datos, para lo que debemos elegir el email, contrase&#xF1;a de acceso, lenguaje e idioma, adem&#xE1;s de seleccionar si queremos importar data de prueba para evaluar Odoo.
+<img src="http://jmoral.es/assets/img/odoo/usuario/6.png" alt=""></p>
+</li>
+</ol>
+<h3 id="a&#xF1;adiendo-m&#xF3;dulos-externos-a-odoo">A&#xF1;adiendo m&#xF3;dulos externos a Odoo</h3>
+<p>El <strong>docker-compose.yml</strong> que creamos en pasos anteriores adem&#xE1;s de levantar las imagen de odoo y postgres necesaria tambi&#xE9;n nos crea un volumen en nuestro directorio para poder a&#xF1;adir m&#xF3;dulos externos a nuestra instancia.</p>
+<p><strong><img src="https://lh5.googleusercontent.com/5QskRN5t1xRjiWJ_V2g7qx0yuANvaMkOgNyyV_1GSMxYh9q6bNeYWVXVfn66qhn3ZUVPvJRClYk-1MHvi0D-Vw-kGeO5_hry_xTKNkuAgY_fwCQgrMusjqn8PA_PjIlM0zbuiprx" alt=""></strong></p>
+<ol>
+<li>Para poder empezar a trabajar con un m&#xF3;dulo propio de Odoo primero hay que darle permisos a la carpeta extra-addons.</li>
+</ol>
+<pre><code>sudo chmod -R alejandroasc:alejandroasc extra-addons/ #reemplazar alejandroasc por su usuario
+sudo chmod -R 755 extra-addons/
+</code></pre><ol>
+<li>Luego en la misma ruta donde se encuentra nuestro compose debemos ejecutar el siguiente comando <strong>docker exec -u root -t -i nombredelamaquina /bin/bash</strong> este comando se ejecuta para entrar en la virtualizacion de docker para crear nuestro m&#xF3;dulo. Para comprobar el nombre de nuuestra maquina de docker basta con abrir otro terminal y ejecutar el comando <strong>sudo docker ps</strong>
+<strong><img src="https://lh3.googleusercontent.com/dCR3wdxVnJz0SFTvOVbkxHlAZhUH8p-uPQZnKHh8PUZmoJo1V0jWUPXIthC3OHfnvlacaE7ZRbblt6uu7oruod6R05v6cakwgTCQEs0lYKRfn65Cl8fDn9AUC7-6ZihG_Qx55iKu" alt=""></strong></li>
+<li>Una vez ejecutadado el comando se nos quedar&#xED;a la siguiente vista.
+<strong><img src="https://lh5.googleusercontent.com/uIG-qHiEvC_ouI8hJZhqLWwlbk8kxDQkGdusy-1yiioV3Dzwf6qWfCWPE0ehUV5eUQFOOfCHbSLgXsSeNWgEQEagtLUbnOj7sa6wDUV7a-BDvaFQhER1jAyoS7XlZGETGIjZSI69" alt=""></strong></li>
+<li><p>Luego habr&#xE1; que ir a la siguiente ruta <strong>/mnt/extra-addons</strong> y ejecutamos el comando:</p>
+<pre><code>odoo scaffold nombreDelM&#xF3;duloQueQeremosCrear.
+</code></pre><p><strong><img src="https://lh6.googleusercontent.com/LUkR3Wbfq4JpX5FnBaHgL2fgpyneZIGBRx_4bwsW-qUHvipTn0wR20Es5pELEhbCHeDB9oJHJaJo-4o7ZDa3_oUGNKnNhmsuzycV6CaicIcoVyJZazaGQIU3nEULpcHo1mAqe5ks" alt=""></strong></p>
+</li>
+<li><p>Una vez hecho esto si vamos a nuestro directorio inicial veremos que dentro de extra-addons se han creado los archivos correspondiente a nuestro m&#xF3;dulo.
+<strong><img src="https://lh5.googleusercontent.com/4yYTaqDcGBTgaB1YQ80-hvSiW1gPTAAb4dkabd3f8Fay_x4WtvbqamduQejQav4KIx6oYGxJCi6kBhrNhYjYk-d8dsGLU0JzEazGf8v7C3n8RRofe19Dvalqd1u25JmE8Lwmg9gq" alt=""></strong></p>
+</li>
+<li><p>Por &#xFA;ltimo solo nos quedar&#xED;a abrir el m&#xF3;dulo en un editor como Visual Studio Code  y empezar a trabajar.
+<strong><img src="https://lh5.googleusercontent.com/DvBHw3N6x1Rg0-SWdDXrNRnEzjYO85jFHxDkfn3DmLnjSTDJMpQni-s0YQ9RcUIfxVTWMdqVhiWWzgJXmVlUqT12DswQYnQgwCwnjSBersY9oii7Vk6_SsKMtlVVVyx7z5zV1sNt" alt=""></strong></p>
+<h2 id="comandos-&#xFA;tiles">Comandos &#xFA;tiles</h2>
+</li>
+<li><p>docker images #para ver la lista de im&#xE1;genes descargadas.</p>
+</li>
+<li><p>docker ps #para ver la lista de contenedores en ejecuci&#xF3;n.</p>
+</li>
+<li><p>docker ps -a #para ver la lista de todos los contenedores ejecutados.</p>
+</li>
+<li><p>docker rm #para borrar contenedores en nuestro equipo.</p>
+</li>
+<li><p>docker rmi #para borrar imagenes en nuestro equipo.</p>
+</li>
+<li><p>docker sear ch #para buscar im&#xE1;genes en el Docker Hub.</p>
+</li>
+<li><p>docker pull #para descargar im&#xE1;genes desde Docker Hub.</p>
+</li>
+<li><p>docker-compose up #lee el compose y monta los dockers</p>
+</li>
+<li><p>docker tag bb38976d03cf yourhubusername/verse_gapminder:firsttry</p>
+</li>
+<li><p>docker push yourhubusername/verse_gapminder</p>
+</li>
+<li><p>docker run -it nombreDelContenedor #para arrancar un contenedor ya creado.</p>
+</li>
+<li><p>docker stop idContenedor #para parar un contenedor ya creado.</p>
+</li>
+<li><p>docker stop $(docker ps -a -q) #para pausar todos los contenedores en funcionamiento</p>
+</li>
+<li><p>docker exec -u root -t -i nombredelamaquina /bin/bash #ejecutar maquina virtual Docker</p>
+</li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../herencia/" class="navigation navigation-next " aria-label="Next page: Herencia">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Docker","level":"1.2","depth":1,"next":{"title":"Herencia","level":"1.3","depth":1,"path":"herencia/README.md","ref":"herencia/README.md","articles":[{"title":"Ocultar o mostrar un campo ","level":"1.3.1","depth":2,"path":"herencia/ocultar_o_mostrar_un_campo.md","ref":"herencia/ocultar_o_mostrar_un_campo.md","articles":[]}]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter/README.md","mtime":"2019-04-02T10:36:15.888Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-04T09:12:05.378Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
