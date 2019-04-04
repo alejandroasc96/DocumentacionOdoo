@@ -26,7 +26,13 @@ El código anterior agrega un campo nuevo  `campoCalculado`  y el método  `_cam
    notación de puntos puede ser usada para seguir las relaciones de
    campo.
 -   **`@api.constrains(fld1,...)`** se utiliza para las funciones de validación para identificar en qué cambios debe activarse la comprobación de validación
--   **`@api.onchange(fld1,...)`**  se utiliza para las funciones de cambio para identificar los campos en el formulario que desencadenará la acción
+-   **`@api.onchange(fld1,...)`**  cuando se cambia el valor de los campos en el formulario desencadenará la acción de recalculado.
+
+---
+*__Nota__*
+Los campos computados se verifican y se vuelven a calcular automáticamente, no necesitan una onchange.
+
+---
 
 En el caso de que queramos **guardar** nuestro **campo calculado** deberemos ponerle **`store=True`** .
 
